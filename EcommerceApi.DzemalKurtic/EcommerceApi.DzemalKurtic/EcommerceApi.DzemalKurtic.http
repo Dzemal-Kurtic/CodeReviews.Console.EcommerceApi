@@ -1,0 +1,6 @@
+@EcommerceApi.DzemalKurtic_HostAddress = http://localhost:5277
+
+GET {{EcommerceApi.DzemalKurtic_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
