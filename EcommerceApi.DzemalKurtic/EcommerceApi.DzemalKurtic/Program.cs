@@ -1,4 +1,7 @@
 using EcommerceApi.DzemalKurtic.Data;
+using EcommerceApi.DzemalKurtic.Repositories.CategoryRepo;
+using EcommerceApi.DzemalKurtic.Repositories.ProductRepo;
+using EcommerceApi.DzemalKurtic.Repositories.SaleRepo;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,9 @@ builder.Services.AddDbContext<EcommerceDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ISaleRepository, SaleRepository>();
 
 var app = builder.Build();
 

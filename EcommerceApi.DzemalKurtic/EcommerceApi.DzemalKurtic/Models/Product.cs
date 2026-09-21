@@ -2,7 +2,7 @@
 
 namespace EcommerceApi.DzemalKurtic.Models;
 
-public class Product : ISoftDeletable
+public class Product : ISoftDeletable, IEntity
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

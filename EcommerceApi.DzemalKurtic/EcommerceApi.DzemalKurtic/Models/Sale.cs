@@ -1,6 +1,8 @@
-﻿namespace EcommerceApi.DzemalKurtic.Models;
+﻿using EcommerceApi.DzemalKurtic.Interfaces;
 
-public class Sale
+namespace EcommerceApi.DzemalKurtic.Models;
+
+public class Sale : IEntity
 {
     public int Id { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

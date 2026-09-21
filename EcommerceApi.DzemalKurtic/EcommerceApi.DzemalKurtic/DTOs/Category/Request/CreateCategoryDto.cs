@@ -1,0 +1,6 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EcommerceApi.DzemalKurtic.DTOs.Category.Request;
+
+public record CreateCategoryDto([property: Required] string Name);
+
