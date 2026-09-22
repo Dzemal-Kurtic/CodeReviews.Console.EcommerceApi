@@ -21,9 +21,12 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<ResponseProductDto>>> GetAll()
+    public async Task<ActionResult<List<ResponseProductDto>>> GetAll(int? categoryId = null)
     {
-        var products = await _productRepository.GetAllAsync();
+        var products = categoryId.HasValue
+            ? await _productRepository.GetByCategoryAsync(categoryId.Value)
+            : await _productRepository.GetAllAsync();
+
         var responseDtos = products.Select(p => p.ToResponseDto());
         return Ok(responseDtos);
     }

@@ -31,7 +31,7 @@ public class SaleRepository : ISaleRepository
             .FirstOrDefaultAsync(s => s.Id == id);
     }
 
-    public async Task<List<Sale>> GetByRangeDateAsync(DateTime from, DateTime to)
+    public async Task<List<Sale>> GetByDateRangeAsync(DateTime from, DateTime to)
     {
         return await SalesWithItems()
             .Where(s => s.CreatedAt >= from && s.CreatedAt <= to)

@@ -23,6 +23,6 @@ public class ProductRepository : Repository<Product>, IProductRepository
 
     public async Task<List<Product>> GetByCategoryAsync(int categoryId)
     {
-        return await _set.Where(p => p.CategoryId == categoryId).ToListAsync();
+        return await _set.Where(p => p.CategoryId == categoryId).Include(p =>p.Category).ToListAsync();
     }
 }
